@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 jobs:
   publish-artifacts:
@@ -25,8 +24,8 @@ jobs:
         run: pip install .[dev]
       - name: Build package artifacts
         run: python -m build
-      - name: Publish package artifacts to GitHub artifact registry
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-        run: python -m twine upload --repository-url https://upload.pypi.pkg.github.com/${{ github.repository_owner }} dist/*
+      - name: Upload package artifacts to artifact registry
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-artifacts
+          path: dist/
