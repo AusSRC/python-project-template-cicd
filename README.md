@@ -6,7 +6,9 @@ A small python project template that utilises the `python-templates` submodule t
 
 ```bash
 git submodule update --init --recursive
-pip install .[dev]
+python3 -m venv .venv
+source .venv/bin/activate
+pip install ".[dev]"
 ```
 
 ## Lint and test
