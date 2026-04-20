@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   lint:
-    uses: AusSRC/python-templates/.github/workflows/lint.yml@prod
+    uses: AusSRC/python-templates/.github/workflows/lint.yml@v1
 
   test:
     runs-on: ubuntu-latest
